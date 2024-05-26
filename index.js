@@ -2,12 +2,12 @@ const request = require('request');
 const express = require ('express');
 const Blockchain = require('./chain');
 const bodyParser = require('body-parser');
-const PubSub = require('../publish');
+const PubSub = require('./publish');
 
 const app = express();
 const blockchain = new Blockchain();
 const pubsub = new PubSub({blockchain});
-const DEFAULT_PORT = 3000;
+const DEFAULT_PORT = 3001;
 const ROOT_NODE_ADDRESS = `http://localhost:${DEFAULT_PORT}`;
 
 setTimeout(()=>pubsub.broadcastChain(),1000);
